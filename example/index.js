@@ -1,10 +1,14 @@
-const { createChromium, createDevoirsClient, ManualAuthorizer } = require('devoirs-core');
+const { createChromium, createDevoirsClient, AutomaticAuthorizer } = require('devoirs-core');
 
 const chromium = createChromium({
   dataDirPath: './data',
 });
 
-const authorizer = new ManualAuthorizer(chromium);
+const authorizer = new AutomaticAuthorizer(
+  chromium,
+  process.env.MICROSOFT_EMAIL,
+  process.env.MICROSOFT_PASSWORD,
+);
 
 let token = null;
 const tokenProvider = {
