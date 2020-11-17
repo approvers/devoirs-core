@@ -8,24 +8,26 @@ export class Chromium {
     private chromiumPath?: string,
   ) {}
 
-  async launch(url: string, width = 800, height = 600): Promise<Page> {
+  async launch(url: string, headless = false): Promise<Page> {
     if (!this.browser) {
       this.browser = await launch({
+        headless,
         executablePath: this.chromiumPath,
         userDataDir: this.dataDirPath,
-        headless: false,
         defaultViewport: null,
         args: [
           '--no-sandbox',
-          `--window-size=${width},${height}`,
-          `--app=${url}`,
+          '--disable-gpu',
         ],
       });
 
       const pages = await this.browser.pages();
 
       if (pages.length > 0) {
-        return pages[0];
+        const page = pages[0]
+        await page.goto(url);
+
+        return page;
       }
     }
 
