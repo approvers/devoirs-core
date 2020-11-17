@@ -20,7 +20,7 @@ jobs:
         run: npm install
 
       - name: Set version by the release tag
-        run: npm version ${{ github.event.release.tag_name }}
+        run: npm version --no-git-tag-version ${{ github.event.release.tag_name }}
 
       - name: Publish the package
         run: npm publish
