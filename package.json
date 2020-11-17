@@ -3,7 +3,7 @@
   "description": "Programmatic access to assignments in Microsoft Teams, on Node.js.",
   "author": "Naoki Ikeguchi <root@siketyan.dev>",
   "homepage": "https://github.com/approvers/devoirs-core#readme",
-  "license": "MIT",
+  "license": "GPL-3.0",
   "version": "0.0.0",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
