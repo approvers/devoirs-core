@@ -1,0 +1,26 @@
+{
+  "name": "devoirs-core",
+  "description": "Programmatic access to assignments in Microsoft Teams, on Node.js.",
+  "author": "Naoki Ikeguchi <root@siketyan.dev>",
+  "homepage": "https://github.com/approvers/devoirs-core#readme",
+  "license": "MIT",
+  "version": "0.0.0",
+  "main": "index.js",
+  "keywords": [
+    "microsoft-365",
+    "microsoft-teams",
+    "assignments"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/approvers/devoirs-core.git"
+  },
+  "bugs": {
+    "url": "https://github.com/approvers/devoirs-core/issues"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {},
+  "devDependencies": {}
+}
