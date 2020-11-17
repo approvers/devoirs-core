@@ -19,8 +19,12 @@
     "url": "https://github.com/approvers/devoirs-core/issues"
   },
   "scripts": {
+    "build": "tsc",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {},
-  "devDependencies": {}
+  "devDependencies": {
+    "@types/node": "^14.14.7",
+    "typescript": "^4.0.5"
+  }
 }
