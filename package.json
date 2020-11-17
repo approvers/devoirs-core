@@ -5,7 +5,8 @@
   "homepage": "https://github.com/approvers/devoirs-core#readme",
   "license": "MIT",
   "version": "0.0.0",
-  "main": "index.js",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
   "keywords": [
     "microsoft-365",
     "microsoft-teams",
@@ -20,11 +21,15 @@
   },
   "scripts": {
     "build": "tsc",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prepublishOnly": "npm run build"
   },
   "dependencies": {},
   "devDependencies": {
     "@types/node": "^14.14.7",
     "typescript": "^4.0.5"
-  }
+  },
+  "files": [
+    "./dist"
+  ]
 }
