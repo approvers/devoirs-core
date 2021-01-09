@@ -54,7 +54,7 @@ export class AutomaticAuthorizer implements IAuthorizer {
   async authorize(): Promise<Token> {
     const page = await this.chromium.launch(
       'https://teams.microsoft.com/_#/apps/66aeee93-507d-479a-a3ef-8f494af43945/sections/classroom',
-      false,
+      true,
     );
 
     page.on('load', () => {
