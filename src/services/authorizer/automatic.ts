@@ -54,7 +54,7 @@ export class AutomaticAuthorizer implements IAuthorizer {
   async authorize(): Promise<Token> {
     const page = await this.chromium.launch(
       'https://teams.microsoft.com/_#/apps/66aeee93-507d-479a-a3ef-8f494af43945/sections/classroom',
-      true,
+      false,
     );
 
     page.on('load', () => {
@@ -75,9 +75,10 @@ export class AutomaticAuthorizer implements IAuthorizer {
         if (response.status() === 302) {
           const location = response.headers()['location'];
           const hash = parseQuery(location.split('#')[1]);
-          const state = (hash['state'] as string | undefined)?.split('|');
+          const query = parseQuery(response.url().split('?', 2)[1]);
+          const scope = query['scope'] as string | undefined;
 
-          if (state && state[1] === 'https://onenote.com/') {
+          if (scope?.startsWith('https://onenote.com/')) {
             page.removeAllListeners('response');
 
             this.chromium.quit();
